@@ -1,0 +1,564 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D37C8AFF19B8CCE800DAE38A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37C8AFE19B8CCE800DAE38A /* Foundation.framework */; };
+		D37C8B0119B8CCE800DAE38A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37C8B0019B8CCE800DAE38A /* CoreGraphics.framework */; };
+		D37C8B0319B8CCE800DAE38A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37C8B0219B8CCE800DAE38A /* UIKit.framework */; };
+		D37C8B0919B8CCE800DAE38A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D37C8B0719B8CCE800DAE38A /* InfoPlist.strings */; };
+		D37C8B0B19B8CCE800DAE38A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B0A19B8CCE800DAE38A /* main.m */; };
+		D37C8B0F19B8CCE800DAE38A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B0E19B8CCE800DAE38A /* AppDelegate.m */; };
+		D37C8B1219B8CCE800DAE38A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37C8B1019B8CCE800DAE38A /* Main_iPhone.storyboard */; };
+		D37C8B1519B8CCE800DAE38A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37C8B1319B8CCE800DAE38A /* Main_iPad.storyboard */; };
+		D37C8B1819B8CCE800DAE38A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B1719B8CCE800DAE38A /* ViewController.m */; };
+		D37C8B1A19B8CCE800DAE38A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37C8B1919B8CCE800DAE38A /* Images.xcassets */; };
+		D37C8B2119B8CCE800DAE38A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37C8B2019B8CCE800DAE38A /* XCTest.framework */; };
+		D37C8B2219B8CCE800DAE38A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37C8AFE19B8CCE800DAE38A /* Foundation.framework */; };
+		D37C8B2319B8CCE800DAE38A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37C8B0219B8CCE800DAE38A /* UIKit.framework */; };
+		D37C8B2B19B8CCE800DAE38A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D37C8B2919B8CCE800DAE38A /* InfoPlist.strings */; };
+		D37C8B2D19B8CCE800DAE38A /* TwipWireTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B2C19B8CCE800DAE38A /* TwipWireTests.m */; };
+		D37C8B4619B92A1500DAE38A /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B4519B92A1500DAE38A /* TweetCell.m */; };
+		D37C8B4B19B9477900DAE38A /* TwipWireSvcWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B4A19B9477900DAE38A /* TwipWireSvcWrapper.m */; };
+		D37C8B4E19B949D200DAE38A /* GolgiStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B4D19B949D200DAE38A /* GolgiStuff.m */; };
+		D37C8B5119B94A1F00DAE38A /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B5019B94A1F00DAE38A /* AppData.m */; };
+		D37C8B5619B9F54E00DAE38A /* user_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = D37C8B5519B9F54E00DAE38A /* user_blank.png */; };
+		D37C8B5919BA00CB00DAE38A /* TweetDb.m in Sources */ = {isa = PBXBuildFile; fileRef = D37C8B5819BA00CB00DAE38A /* TweetDb.m */; };
+		D39F898119BA76C300B7F8BA /* FB-pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D39F898019BA76C300B7F8BA /* FB-pop.mp3 */; };
+		D39F898319BA775F00B7F8BA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39F898219BA775F00B7F8BA /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D37C8B2419B8CCE800DAE38A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D37C8AF319B8CCE800DAE38A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D37C8AFA19B8CCE800DAE38A;
+			remoteInfo = TwipWire;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D37C8AFB19B8CCE800DAE38A /* TwipWire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwipWire.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D37C8AFE19B8CCE800DAE38A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D37C8B0019B8CCE800DAE38A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D37C8B0219B8CCE800DAE38A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D37C8B0619B8CCE800DAE38A /* TwipWire-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TwipWire-Info.plist"; sourceTree = "<group>"; };
+		D37C8B0819B8CCE800DAE38A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D37C8B0A19B8CCE800DAE38A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D37C8B0C19B8CCE800DAE38A /* TwipWire-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TwipWire-Prefix.pch"; sourceTree = "<group>"; };
+		D37C8B0D19B8CCE800DAE38A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D37C8B0E19B8CCE800DAE38A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D37C8B1119B8CCE800DAE38A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		D37C8B1419B8CCE800DAE38A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		D37C8B1619B8CCE800DAE38A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D37C8B1719B8CCE800DAE38A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D37C8B1919B8CCE800DAE38A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D37C8B1F19B8CCE800DAE38A /* TwipWireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwipWireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D37C8B2019B8CCE800DAE38A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D37C8B2819B8CCE800DAE38A /* TwipWireTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TwipWireTests-Info.plist"; sourceTree = "<group>"; };
+		D37C8B2A19B8CCE800DAE38A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D37C8B2C19B8CCE800DAE38A /* TwipWireTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwipWireTests.m; sourceTree = "<group>"; };
+		D37C8B4419B92A1500DAE38A /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		D37C8B4519B92A1500DAE38A /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
+		D37C8B4819B9470300DAE38A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D37C8B4919B9477900DAE38A /* TwipWireSvcWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwipWireSvcWrapper.h; sourceTree = "<group>"; };
+		D37C8B4A19B9477900DAE38A /* TwipWireSvcWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwipWireSvcWrapper.m; sourceTree = "<group>"; };
+		D37C8B4C19B949D200DAE38A /* GolgiStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GolgiStuff.h; sourceTree = "<group>"; };
+		D37C8B4D19B949D200DAE38A /* GolgiStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GolgiStuff.m; sourceTree = "<group>"; };
+		D37C8B4F19B94A1F00DAE38A /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
+		D37C8B5019B94A1F00DAE38A /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
+		D37C8B5519B9F54E00DAE38A /* user_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_blank.png; sourceTree = "<group>"; };
+		D37C8B5719BA00CB00DAE38A /* TweetDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetDb.h; sourceTree = "<group>"; };
+		D37C8B5819BA00CB00DAE38A /* TweetDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetDb.m; sourceTree = "<group>"; };
+		D39F898019BA76C300B7F8BA /* FB-pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "FB-pop.mp3"; path = "../FB-pop.mp3"; sourceTree = "<group>"; };
+		D39F898219BA775F00B7F8BA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D37C8AF819B8CCE800DAE38A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D39F898319BA775F00B7F8BA /* AudioToolbox.framework in Frameworks */,
+				D37C8B0119B8CCE800DAE38A /* CoreGraphics.framework in Frameworks */,
+				D37C8B0319B8CCE800DAE38A /* UIKit.framework in Frameworks */,
+				D37C8AFF19B8CCE800DAE38A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D37C8B1C19B8CCE800DAE38A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D37C8B2119B8CCE800DAE38A /* XCTest.framework in Frameworks */,
+				D37C8B2319B8CCE800DAE38A /* UIKit.framework in Frameworks */,
+				D37C8B2219B8CCE800DAE38A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D37C8AF219B8CCE800DAE38A = {
+			isa = PBXGroup;
+			children = (
+				D37C8B4819B9470300DAE38A /* Config.xcconfig */,
+				D37C8B0419B8CCE800DAE38A /* TwipWire */,
+				D37C8B2619B8CCE800DAE38A /* TwipWireTests */,
+				D37C8AFD19B8CCE800DAE38A /* Frameworks */,
+				D37C8AFC19B8CCE800DAE38A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D37C8AFC19B8CCE800DAE38A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D37C8AFB19B8CCE800DAE38A /* TwipWire.app */,
+				D37C8B1F19B8CCE800DAE38A /* TwipWireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D37C8AFD19B8CCE800DAE38A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D39F898219BA775F00B7F8BA /* AudioToolbox.framework */,
+				D37C8AFE19B8CCE800DAE38A /* Foundation.framework */,
+				D37C8B0019B8CCE800DAE38A /* CoreGraphics.framework */,
+				D37C8B0219B8CCE800DAE38A /* UIKit.framework */,
+				D37C8B2019B8CCE800DAE38A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D37C8B0419B8CCE800DAE38A /* TwipWire */ = {
+			isa = PBXGroup;
+			children = (
+				D37C8B5719BA00CB00DAE38A /* TweetDb.h */,
+				D37C8B5819BA00CB00DAE38A /* TweetDb.m */,
+				D37C8B5519B9F54E00DAE38A /* user_blank.png */,
+				D37C8B4F19B94A1F00DAE38A /* AppData.h */,
+				D37C8B5019B94A1F00DAE38A /* AppData.m */,
+				D37C8B4C19B949D200DAE38A /* GolgiStuff.h */,
+				D37C8B4D19B949D200DAE38A /* GolgiStuff.m */,
+				D37C8B0D19B8CCE800DAE38A /* AppDelegate.h */,
+				D37C8B0E19B8CCE800DAE38A /* AppDelegate.m */,
+				D37C8B1019B8CCE800DAE38A /* Main_iPhone.storyboard */,
+				D37C8B1319B8CCE800DAE38A /* Main_iPad.storyboard */,
+				D37C8B1619B8CCE800DAE38A /* ViewController.h */,
+				D37C8B1719B8CCE800DAE38A /* ViewController.m */,
+				D37C8B1919B8CCE800DAE38A /* Images.xcassets */,
+				D37C8B0519B8CCE800DAE38A /* Supporting Files */,
+				D37C8B4419B92A1500DAE38A /* TweetCell.h */,
+				D37C8B4519B92A1500DAE38A /* TweetCell.m */,
+				D37C8B4919B9477900DAE38A /* TwipWireSvcWrapper.h */,
+				D37C8B4A19B9477900DAE38A /* TwipWireSvcWrapper.m */,
+			);
+			path = TwipWire;
+			sourceTree = "<group>";
+		};
+		D37C8B0519B8CCE800DAE38A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D39F898019BA76C300B7F8BA /* FB-pop.mp3 */,
+				D37C8B0619B8CCE800DAE38A /* TwipWire-Info.plist */,
+				D37C8B0719B8CCE800DAE38A /* InfoPlist.strings */,
+				D37C8B0A19B8CCE800DAE38A /* main.m */,
+				D37C8B0C19B8CCE800DAE38A /* TwipWire-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D37C8B2619B8CCE800DAE38A /* TwipWireTests */ = {
+			isa = PBXGroup;
+			children = (
+				D37C8B2C19B8CCE800DAE38A /* TwipWireTests.m */,
+				D37C8B2719B8CCE800DAE38A /* Supporting Files */,
+			);
+			path = TwipWireTests;
+			sourceTree = "<group>";
+		};
+		D37C8B2719B8CCE800DAE38A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D37C8B2819B8CCE800DAE38A /* TwipWireTests-Info.plist */,
+				D37C8B2919B8CCE800DAE38A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D37C8AFA19B8CCE800DAE38A /* TwipWire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D37C8B3019B8CCE800DAE38A /* Build configuration list for PBXNativeTarget "TwipWire" */;
+			buildPhases = (
+				D37C8B4719B9469900DAE38A /* ShellScript */,
+				D37C8AF719B8CCE800DAE38A /* Sources */,
+				D37C8AF819B8CCE800DAE38A /* Frameworks */,
+				D37C8AF919B8CCE800DAE38A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwipWire;
+			productName = TwipWire;
+			productReference = D37C8AFB19B8CCE800DAE38A /* TwipWire.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D37C8B1E19B8CCE800DAE38A /* TwipWireTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D37C8B3319B8CCE800DAE38A /* Build configuration list for PBXNativeTarget "TwipWireTests" */;
+			buildPhases = (
+				D37C8B1B19B8CCE800DAE38A /* Sources */,
+				D37C8B1C19B8CCE800DAE38A /* Frameworks */,
+				D37C8B1D19B8CCE800DAE38A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D37C8B2519B8CCE800DAE38A /* PBXTargetDependency */,
+			);
+			name = TwipWireTests;
+			productName = TwipWireTests;
+			productReference = D37C8B1F19B8CCE800DAE38A /* TwipWireTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D37C8AF319B8CCE800DAE38A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Golgi;
+				TargetAttributes = {
+					D37C8AFA19B8CCE800DAE38A = {
+						DevelopmentTeam = CJ62T3H7T2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					D37C8B1E19B8CCE800DAE38A = {
+						TestTargetID = D37C8AFA19B8CCE800DAE38A;
+					};
+				};
+			};
+			buildConfigurationList = D37C8AF619B8CCE800DAE38A /* Build configuration list for PBXProject "TwipWire" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D37C8AF219B8CCE800DAE38A;
+			productRefGroup = D37C8AFC19B8CCE800DAE38A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D37C8AFA19B8CCE800DAE38A /* TwipWire */,
+				D37C8B1E19B8CCE800DAE38A /* TwipWireTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D37C8AF919B8CCE800DAE38A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D37C8B1519B8CCE800DAE38A /* Main_iPad.storyboard in Resources */,
+				D37C8B5619B9F54E00DAE38A /* user_blank.png in Resources */,
+				D39F898119BA76C300B7F8BA /* FB-pop.mp3 in Resources */,
+				D37C8B1A19B8CCE800DAE38A /* Images.xcassets in Resources */,
+				D37C8B1219B8CCE800DAE38A /* Main_iPhone.storyboard in Resources */,
+				D37C8B0919B8CCE800DAE38A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D37C8B1D19B8CCE800DAE38A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D37C8B2B19B8CCE800DAE38A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D37C8B4719B9469900DAE38A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "WKDIR=\"$PROJECT_DIR/$PROJECT_NAME\"\ncp -f \"$PROJECT_DIR/../../TwipWire.thrift\" \"$WKDIR\"\n\necho \"Hello\"\nDEVKEY=`cat \"$PROJECT_DIR/../../Golgi.DevKey\"`\nAPPKEY=`cat \"$PROJECT_DIR/../../Golgi.AppKey\"`\necho 1 $DEVKEY\necho 2 $APPKEY\necho \"#define GOLGI_DEV_KEY @\\\"$DEVKEY\\\"\" >\"$WKDIR/GOLGI_KEYS.h\"\necho \"#define GOLGI_APP_KEY @\\\"$APPKEY\\\"\" >>\"$WKDIR/GOLGI_KEYS.h\"\ncp \"$HOME/Golgi-Pkg/LATEST/iOS/golgi_gen.sh\" \"$WKDIR\"\nchmod +w \"$WKDIR/golgi_gen.sh\"\n. \"$WKDIR/golgi_gen.sh\"\nrm -f \"$WKDIR/golgi_gen.sh\"\nrm -f \"$WKDIR/TwipWire.thrift\"∫\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D37C8AF719B8CCE800DAE38A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D37C8B4B19B9477900DAE38A /* TwipWireSvcWrapper.m in Sources */,
+				D37C8B1819B8CCE800DAE38A /* ViewController.m in Sources */,
+				D37C8B5119B94A1F00DAE38A /* AppData.m in Sources */,
+				D37C8B0F19B8CCE800DAE38A /* AppDelegate.m in Sources */,
+				D37C8B0B19B8CCE800DAE38A /* main.m in Sources */,
+				D37C8B4619B92A1500DAE38A /* TweetCell.m in Sources */,
+				D37C8B4E19B949D200DAE38A /* GolgiStuff.m in Sources */,
+				D37C8B5919BA00CB00DAE38A /* TweetDb.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D37C8B1B19B8CCE800DAE38A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D37C8B2D19B8CCE800DAE38A /* TwipWireTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D37C8B2519B8CCE800DAE38A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D37C8AFA19B8CCE800DAE38A /* TwipWire */;
+			targetProxy = D37C8B2419B8CCE800DAE38A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D37C8B0719B8CCE800DAE38A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D37C8B0819B8CCE800DAE38A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D37C8B1019B8CCE800DAE38A /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D37C8B1119B8CCE800DAE38A /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		D37C8B1319B8CCE800DAE38A /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D37C8B1419B8CCE800DAE38A /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		D37C8B2919B8CCE800DAE38A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D37C8B2A19B8CCE800DAE38A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D37C8B2E19B8CCE800DAE38A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D37C8B4819B9470300DAE38A /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D37C8B2F19B8CCE800DAE38A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D37C8B4819B9470300DAE38A /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D37C8B3119B8CCE800DAE38A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TwipWire/TwipWire-Prefix.pch";
+				INFOPLIST_FILE = "TwipWire/TwipWire-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D37C8B3219B8CCE800DAE38A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TwipWire/TwipWire-Prefix.pch";
+				INFOPLIST_FILE = "TwipWire/TwipWire-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D37C8B3419B8CCE800DAE38A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TwipWire.app/TwipWire";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TwipWire/TwipWire-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TwipWireTests/TwipWireTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D37C8B3519B8CCE800DAE38A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TwipWire.app/TwipWire";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TwipWire/TwipWire-Prefix.pch";
+				INFOPLIST_FILE = "TwipWireTests/TwipWireTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D37C8AF619B8CCE800DAE38A /* Build configuration list for PBXProject "TwipWire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D37C8B2E19B8CCE800DAE38A /* Debug */,
+				D37C8B2F19B8CCE800DAE38A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D37C8B3019B8CCE800DAE38A /* Build configuration list for PBXNativeTarget "TwipWire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D37C8B3119B8CCE800DAE38A /* Debug */,
+				D37C8B3219B8CCE800DAE38A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D37C8B3319B8CCE800DAE38A /* Build configuration list for PBXNativeTarget "TwipWireTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D37C8B3419B8CCE800DAE38A /* Debug */,
+				D37C8B3519B8CCE800DAE38A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D37C8AF319B8CCE800DAE38A /* Project object */;
+}

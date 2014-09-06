@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.golgi.twipwire" >
+
+    <!--
+      {BEGIN} GOLGI
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!--
+      {END} GOLGI
+    -->
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <meta-data android:value="io.golgi.twipwire.TWService" android:name="GolgiServiceClassName"/>
+
+        <!--
+          {BEGIN} GOLGI
+        -->
+        <service android:exported="true" android:name="io.golgi.twipwire.TWService"/>
+        <service android:name="io.golgi.twipwire.GolgiGCMIntentService" />
+        <receiver
+            android:name="io.golgi.twipwire.GolgiGCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="io.golgi.example.emigre" />
+            </intent-filter>
+        </receiver>
+        <!--
+          {END} GOLGI
+        -->
+
+
+        <activity
+            android:name=".TWActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:label="TWSettings"
+            android:name=".TWSettings">
+        </activity>
+
+
+    </application>
+
+</manifest>
