@@ -1,0 +1,7 @@
+*.class
+*.jar
+QW-Data.txt
+QW-Users.txt
+io/golgi/quakewatch/gen
+libs/
+bin/
