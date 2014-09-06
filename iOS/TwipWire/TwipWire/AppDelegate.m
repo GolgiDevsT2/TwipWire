@@ -52,7 +52,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // {extern void enableOMNLogging(); enableOMNLogging();}
-    NSLog(@"Default encoding: %ld", [NSString defaultCStringEncoding]);
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     

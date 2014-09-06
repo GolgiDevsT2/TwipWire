@@ -99,10 +99,10 @@
     return 64.0;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tv heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(offScreenCell == nil){
-        offScreenCell = [tableView dequeueReusableCellWithIdentifier:@"XXX"];
+        offScreenCell = [tv dequeueReusableCellWithIdentifier:@"XXX"];
     }
     
     [offScreenCell setNeedsUpdateConstraints];
@@ -130,7 +130,7 @@
     
     // NSLog(@"Row %ld height: %f", indexPath.row, height);
     CGSize s = [offScreenCell.contentTv sizeThatFits:offScreenCell.contentTv.frame.size];
-    NSLog(@"Content %ld Size: %f", indexPath.row, s.height);
+    NSLog(@"Content %ld Size: %f", (long)indexPath.row, s.height);
     
     height = s.height + 20.0 + 1.0;
     
@@ -155,7 +155,7 @@
         allTweets = [[NSArray alloc] init];
     }
     
-    NSLog(@"There are %ld tweets", allTweets.count);
+    NSLog(@"There are %ld tweets", (unsigned long)allTweets.count);
     return allTweets.count;
 }
 
@@ -166,9 +166,9 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"XXX" forIndexPath:indexPath];
+    TweetCell *cell = [tv dequeueReusableCellWithIdentifier:@"XXX" forIndexPath:indexPath];
     TweetDetails *deets = [self tweetForRow:indexPath.row];
  
     // Configure the cell...
@@ -179,7 +179,7 @@
     [cell.userIv setImage:[UIImage imageWithData:[deets getImage]]];
     
     int now = (int)time(NULL);
-    int delay = now - [deets getTimestamp];
+    int delay = now - (int)[deets getTimestamp];
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:(double)[deets getTimestamp]];
     NSString *dstr;
