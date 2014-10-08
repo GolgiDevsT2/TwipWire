@@ -12,6 +12,11 @@ run the application. All that is required to do this is the following:
 * Clone this repository
 * Create a file called ```Golgi.DevKey``` containing a single line (the Developer Key you were assigned)
 * Create another file called ```Golgi.AppKey``` containing a single line (the Application Key assigned to your new application).
+* Register as a developer at Twitter
+* Create an application (in Twitter) for TwipWire. It should have Read-Only permission.
+* Generate an Access Token for the newly created application.
+* Create a file called Twitter.Credentials in the top-level directory. Use Twitter.Credentials.Example as a template and populate the 4 strings from the Twitter Console for your newly created Twitter Application.
+
 
 ### Build the Server
 In the Server directory:
