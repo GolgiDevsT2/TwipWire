@@ -94,6 +94,13 @@ public class Server extends Thread implements GolgiAPIHandler{
     private String appKey = null;
     private String identity;
     
+    private String consumerKey = null;
+    private String consumerSecret = null;
+    private String accessToken = null;
+    private String accessTokenSecret = null;
+    
+    
+    
     private TwitterFactory twitterFactory;
     
     private GolgiTransportOptions stdGto;
@@ -460,12 +467,14 @@ public class Server extends Thread implements GolgiAPIHandler{
                           "SERVER",
                           this);
         
+        
+        
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-          .setOAuthConsumerKey("DQy9G0uZFHVbyiIvcfCu2sPAe")
-          .setOAuthConsumerSecret("NYjuxltXqocni3xLJ1LrvAgP0NOoPrwmfehJYaDWFgsX07Aeab")
-          .setOAuthAccessToken("44146659-SpvaGvDCFdytpHeO45e7BhsuEQkNHNpGa7Xvwr1yb")
-          .setOAuthAccessTokenSecret("eThSEmpiSlKLFWEwIiavYLpuV5B1yIowQB1XN6pkEIsH1");
+          .setOAuthConsumerKey(consumerKey)
+          .setOAuthConsumerSecret(consumerSecret)
+          .setOAuthAccessToken(accessToken)
+          .setOAuthAccessTokenSecret(accessTokenSecret);
         twitterFactory = new TwitterFactory(cb.build());
         
         Timer hkTimer;
@@ -489,6 +498,22 @@ public class Server extends Thread implements GolgiAPIHandler{
         		appKey = args[i+1];
         		i++;
         	}
+        	else if(args[i].compareTo("-consumer_key") == 0){
+        		consumerKey = args[i+1];
+        		i++;
+        	}
+        	else if(args[i].compareTo("-consumer_secret") == 0){
+        		consumerSecret = args[i+1];
+        		i++;
+        	}
+        	else if(args[i].compareTo("-access_token") == 0){
+        		accessToken = args[i+1];
+        		i++;
+        	}
+        	else if(args[i].compareTo("-access_token_secret") == 0){
+        		accessTokenSecret = args[i+1];
+        		i++;
+        	}
         	else{
         		System.err.println("Zoikes, unrecognised option '" + args[i] + "'");
         		System.exit(-1);;
@@ -500,6 +525,22 @@ public class Server extends Thread implements GolgiAPIHandler{
         }
         else if(appKey == null){
         	System.out.println("No -appKey specified");
+        	System.exit(-1);
+        }
+        else if(consumerKey == null){
+        	System.out.println("No -consumer_key specified");
+        	System.exit(-1);
+        }
+        else if(consumerSecret == null){
+        	System.out.println("No -consumer_secret specified");
+        	System.exit(-1);
+        }
+        else if(accessToken == null){
+        	System.out.println("No -access_token specified");
+        	System.exit(-1);
+        }
+        else if(accessTokenSecret == null){
+        	System.out.println("No -access_token_secret specified");
         	System.exit(-1);
         }
     }

@@ -62,6 +62,10 @@ spotless:clean
 RTCP	=	 TwipWire.jar:$(PKG_DIR)/common/golgi_j2se.jar:$(LIB_JARS)
 
 run:all 
-	$(JAVA) -classpath $(RTCP) io.golgi.twipwire.Server -devKey `cat ../Golgi.DevKey` -appKey `cat ../Golgi.AppKey`
+	@if [ ! -f ../Twitter.Credentials ]; then \
+		echo "No Twitter.Credentials in top level directory"; \
+		exit -1; \
+	fi
+	$(JAVA) -classpath $(RTCP) io.golgi.twipwire.Server -devKey `cat ../Golgi.DevKey` -appKey `cat ../Golgi.AppKey` `cat ../Twitter.Credentials`
 
 

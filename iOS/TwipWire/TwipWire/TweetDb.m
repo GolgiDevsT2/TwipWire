@@ -39,7 +39,7 @@
     }
 
     
-    NSLog(@"There are %ld tweets", (long)tweets.count);
+    NSLog(@"There are %ld tweets", tweets.count);
     
     return tweets;
 }
@@ -51,7 +51,7 @@
     NSString *insQry = @"INSERT INTO TWEETS (DBKEY,ENCODING) VALUES(?,?);";
         
     if(sqlite3_prepare_v2(db, [insQry UTF8String], -1, &statement, nil) == SQLITE_OK){
-        key = [NSString stringWithFormat:@"%ld:%@", (long)[deets getTimestamp], [deets getUsername]];
+        key = [NSString stringWithFormat:@"%ld:%@", [deets getTimestamp], [deets getUsername]];
         serData = [deets serialise];
         sqlite3_bind_text(statement, 1, [key UTF8String], -1, NULL);
         sqlite3_bind_text(statement, 2, [serData UTF8String], -1, NULL);

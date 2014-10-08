@@ -308,7 +308,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "WKDIR=\"$PROJECT_DIR/$PROJECT_NAME\"\ncp -f \"$PROJECT_DIR/../../TwipWire.thrift\" \"$WKDIR\"\n\necho \"Hello\"\nDEVKEY=`cat \"$PROJECT_DIR/../../Golgi.DevKey\"`\nAPPKEY=`cat \"$PROJECT_DIR/../../Golgi.AppKey\"`\necho 1 $DEVKEY\necho 2 $APPKEY\necho \"#define GOLGI_DEV_KEY @\\\"$DEVKEY\\\"\" >\"$WKDIR/GOLGI_KEYS.h\"\necho \"#define GOLGI_APP_KEY @\\\"$APPKEY\\\"\" >>\"$WKDIR/GOLGI_KEYS.h\"\ncp \"$HOME/Golgi-Pkg/LATEST/iOS/golgi_gen.sh\" \"$WKDIR\"\nchmod +w \"$WKDIR/golgi_gen.sh\"\n. \"$WKDIR/golgi_gen.sh\"\nrm -f \"$WKDIR/golgi_gen.sh\"\nrm -f \"$WKDIR/TwipWire.thrift\"∫\n";
+			shellScript = "WKDIR=\"$PROJECT_DIR/$PROJECT_NAME\"\ncp -f \"$PROJECT_DIR/../../TwipWire.thrift\" \"$WKDIR\"\n\necho \"Hello\"\nDEVKEY=`cat \"$PROJECT_DIR/../../Golgi.DevKey\"`\nAPPKEY=`cat \"$PROJECT_DIR/../../Golgi.AppKey\"`\necho 1 $DEVKEY\necho 2 $APPKEY\necho \"#define GOLGI_DEV_KEY @\\\"$DEVKEY\\\"\" >\"$WKDIR/GOLGI_KEYS.h\"\necho \"#define GOLGI_APP_KEY @\\\"$APPKEY\\\"\" >>\"$WKDIR/GOLGI_KEYS.h\"\ncp \"$HOME/Golgi-Pkg/LATEST/iOS/golgi_gen.sh\" \"$WKDIR\"\nchmod +w \"$WKDIR/golgi_gen.sh\"\n. \"$WKDIR/golgi_gen.sh\"\nrm -f \"$WKDIR/golgi_gen.sh\"\nrm -f \"$WKDIR/TwipWire.thrift\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

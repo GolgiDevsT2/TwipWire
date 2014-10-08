@@ -59,6 +59,15 @@
     [golgiStuff.viewController newTweets];
     [resultSender success];
     AudioServicesPlaySystemSound(golgiStuff.popId);
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.alertBody = [NSString stringWithFormat:@"Tweet by %@", [tweetDetails getName]];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    NSLog(@"D");
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    NSLog(@"E");
+
 }
 
 

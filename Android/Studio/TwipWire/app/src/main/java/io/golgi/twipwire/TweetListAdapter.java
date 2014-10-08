@@ -76,7 +76,7 @@ public class TweetListAdapter extends ArrayAdapter<TweetDetails>
         TweetDetails deets = getItem(position);
         ViewHolder holder;
         View rowView = convertView;
-        DBG.write("***************************** Get: " + position);
+        // DBG.write("***************************** Get: " + position);
 
         if(rowView == null){
             rowView = initRowView(deets);

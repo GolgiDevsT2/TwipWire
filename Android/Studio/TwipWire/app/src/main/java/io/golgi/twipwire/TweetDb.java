@@ -79,7 +79,7 @@ public class TweetDb extends SQLiteOpenHelper{
 
     public void getAllTweets(ArrayList<TweetDetails> dst){
 		Cursor c;
-        DBG("Asked to get all messages");
+        // DBG("Asked to get all messages");
         synchronized(syncObject){
             SQLiteDatabase db = getReadableDatabase();
             try{
@@ -93,23 +93,23 @@ public class TweetDb extends SQLiteOpenHelper{
                         null);
 
                 if(c != null && c.getCount() > 0){
-                    DBG("Cursor has " + c.getColumnCount() + " entries");
+                    // DBG("Cursor has " + c.getCount() + " entries");
                     for(int i = 0; i < c.getCount(); i++){
                         c.moveToPosition(i);
                         // DBG("Tweet " + i + " by '" + c.getString(1));
 
                         TweetDetails deets = new TweetDetails(c.getString(0));
                         if(!deets.isCorrupt()){
-                            DBG("Decoded tweet " + i + " text: '" + deets.getText() + "'");
+                            // DBG("Decoded tweet " + i + " text: '" + deets.getText() + "'");
                             dst.add(deets);
                         }
                         else{
-                            DBG("Failed to decode message " + i);
+                            DBG("getAllTweets: Failed to decode message " + i);
                         }
                     }
                 }
                 else{
-                    DBG("Cussor broken or empty");
+                    DBG("getAllTweets: Cussor broken or empty");
                 }
                 if(c != null){
                     c.close();
@@ -134,7 +134,7 @@ public class TweetDb extends SQLiteOpenHelper{
             db.close();
         }
 
-		DBG("Delete resulted: " + res);
+		// DBG("Delete resulted: " + res);
 	}
 
     public void delAllTweets(){
@@ -146,13 +146,13 @@ public class TweetDb extends SQLiteOpenHelper{
             db.close();
         }
 
-        DBG("Delete resulted: " + res);
+        // DBG("Delete resulted: " + res);
     }
 
 	public void addTweet(TweetDetails deets){
         ContentValues values = new ContentValues();
         long res;
-        DBG("Asked to add tweet: '" + deets.getText() + "'");
+        // DBG("Asked to add tweet: '" + deets.getText() + "'");
         values.put(MSGID, msgIdFromDeets(deets));
         values.put(ENCODING, deets.serialise().toString());
 
@@ -161,6 +161,6 @@ public class TweetDb extends SQLiteOpenHelper{
             res = db.insert(tableName, null, values);
             db.close();
         }
-        DBG("addMessage result: " + res);
+        // DBG("addMessage result: " + res);
 	}
 }

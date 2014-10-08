@@ -36,7 +36,6 @@ public class TWActivity extends Activity {
     private static final String NEWTWEET = "NEWTWEET";
     public static final int SETTINGS_COMPLETE = 1;
 
-
     private GolgiTransportOptions stdGto;
     private TweetListAdapter tweetListAdapter;
     private CheckBox enabledCb;

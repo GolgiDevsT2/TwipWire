@@ -51,7 +51,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // {extern void enableOMNLogging(); enableOMNLogging();}
+    {extern void enableOMNLogging(); enableOMNLogging();}
+    NSLog(@"Default encoding: %ld", [NSString defaultCStringEncoding]);
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
@@ -75,6 +76,7 @@
     NSLog(@"applicationDidEnterBackground()");
     [Golgi enteringBackground];
     [Golgi useEphemeralConnection];
+    NSLog(@"applicationDidEnterBackground() complete");
 
 }
 
@@ -94,7 +96,7 @@
     NSLog(@"applicationDidBecomeActive()");
     [Golgi enteringForeground];
     [Golgi usePersistentConnection];
-
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

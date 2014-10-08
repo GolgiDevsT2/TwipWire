@@ -1,8 +1,10 @@
 package io.golgi.twipwire;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +16,7 @@ import android.support.v4.app.NotificationCompat;
 
 import com.openmindnetworks.golgi.api.GolgiAPI;
 import com.openmindnetworks.golgi.api.GolgiAPIHandler;
+import io.golgi.apiimpl.android.GolgiAbstractService;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,6 +33,19 @@ public class TWService extends GolgiAbstractService {
     private static Object syncObj = new Object();
     private static TWActivity twActivity = null;
     private TweetDb tweetDb;
+
+    /*
+    public static class GolgiGCMBroadcastReceiver extends io.golgi.apiimpl.android.GolgiGCMBroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            DBG("Hello from GolgiGCMBroadcastReceiver in TWService  **********");
+            super.onReceive(context, intent);
+
+        }
+    }
+    */
+
+
 
     private static void DBG(String str){
         DBG.write("SVC", str);
@@ -77,7 +93,7 @@ public class TWService extends GolgiAbstractService {
         TwipWireService.newTweet.registerReceiver(new TwipWireService.newTweet.RequestReceiver() {
             @Override
             public void receiveFrom(TwipWireService.newTweet.ResultSender resultSender, TweetDetails tweetDetails) {
-                DBG.write("Received a tweet: " + tweetDetails.getText());
+                // DBG.write("Received a tweet: " + tweetDetails.getText());
                 tweetDb.addTweet(tweetDetails);
                 resultSender.success();
 
@@ -95,7 +111,7 @@ public class TWService extends GolgiAbstractService {
                         }
                     });
                     for (int i = 200; i < al.size(); i++) {
-                        DBG.write("Delete " + al.get(i).getText());
+                        // DBG.write("Delete " + al.get(i).getText());
                         tweetDb.delTweet(al.get(i));
                     }
                 }

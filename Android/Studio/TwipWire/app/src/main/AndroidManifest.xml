@@ -4,16 +4,17 @@
 
     <!--
       {BEGIN} GOLGI
-    -->
+     -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission android:name="${applicationId}.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
     <!--
       {END} GOLGI
     -->
-
 
     <application
         android:allowBackup="true"
@@ -21,26 +22,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
 
-        <meta-data android:value="io.golgi.twipwire.TWService" android:name="GolgiServiceClassName"/>
-
-        <!--
-          {BEGIN} GOLGI
-        -->
-        <service android:exported="true" android:name="io.golgi.twipwire.TWService"/>
-        <service android:name="io.golgi.twipwire.GolgiGCMIntentService" />
-        <receiver
-            android:name="io.golgi.twipwire.GolgiGCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="io.golgi.example.emigre" />
-            </intent-filter>
-        </receiver>
-        <!--
-          {END} GOLGI
-        -->
-
+        <meta-data android:value="${applicationId}.TWService" android:name="GolgiServiceClassName"/>
 
         <activity
             android:name=".TWActivity"
@@ -53,6 +35,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:exported="true" android:name=".TWService"/>
+        <receiver
+            android:exported="true"
+            android:name="io.golgi.apiimpl.android.GolgiGCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:label="TWSettings"
