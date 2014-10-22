@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface AppData : NSObject
-{
-    NSString *instanceId;
-    NSString *currentQuery;
-    BOOL enabled;
-}
 
 + (NSString *)getInstanceId;
 + (void)setInstanceId:(NSString *)instanceId;

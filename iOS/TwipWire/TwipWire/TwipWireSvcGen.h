@@ -193,6 +193,7 @@
 // stopStreaming
 //
 @protocol TwipWireStopStreamingResultSender
+- (NSString *)getRequestSenderId;
 - (void)success;
 @end
 @protocol TwipWireStopStreamingResultReceiver
@@ -202,11 +203,18 @@
 @protocol TwipWireStopStreamingRequestReceiver
 - (void)stopStreamingWithResultSender:(id<TwipWireStopStreamingResultSender>)resultSender andGolgiId:(NSString *)golgiId;
 @end
+@interface TwipWireStopStreamingExceptionBundle: NSObject
+{
+    GolgiException * golgiException;
+}
+@property GolgiException * golgiException;
+@end
 
 //
 // startStreaming
 //
 @protocol TwipWireStartStreamingResultSender
+- (NSString *)getRequestSenderId;
 - (void)success;
 @end
 @protocol TwipWireStartStreamingResultReceiver
@@ -216,11 +224,18 @@
 @protocol TwipWireStartStreamingRequestReceiver
 - (void)startStreamingWithResultSender:(id<TwipWireStartStreamingResultSender>)resultSender andFilter:(TweetFilter *)filter;
 @end
+@interface TwipWireStartStreamingExceptionBundle: NSObject
+{
+    GolgiException * golgiException;
+}
+@property GolgiException * golgiException;
+@end
 
 //
 // newTweet
 //
 @protocol TwipWireNewTweetResultSender
+- (NSString *)getRequestSenderId;
 - (void)success;
 @end
 @protocol TwipWireNewTweetResultReceiver
@@ -230,18 +245,36 @@
 @protocol TwipWireNewTweetRequestReceiver
 - (void)newTweetWithResultSender:(id<TwipWireNewTweetResultSender>)resultSender andTweetDetails:(TweetDetails *)tweetDetails;
 @end
+@interface TwipWireNewTweetExceptionBundle: NSObject
+{
+    GolgiException * golgiException;
+}
+@property GolgiException * golgiException;
+@end
 
 @interface TwipWireSvc : NSObject
-+ (void)sendStopStreamingUsingResultReceiver:(id<TwipWireStopStreamingResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId;
 + (void)sendStopStreamingUsingResultReceiver:(id<TwipWireStopStreamingResultReceiver>)resultReceiver andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId;
++ (void)sendStopStreamingUsingResultReceiver:(id<TwipWireStopStreamingResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId;
++ (void)sendStopStreamingUsingResultHandler:(void (^)(TwipWireStopStreamingExceptionBundle *))resultHandler andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId;
++ (void)sendStopStreamingUsingResultHandler:(void (^)(TwipWireStopStreamingExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId;
++ (void)sendStopStreamingUsingResultReceiver:(id<TwipWireStopStreamingResultReceiver>)resultReceiver orResultHandler:(void (^)(TwipWireStopStreamingExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId;
 + (void)registerStopStreamingRequestReceiver:(id<TwipWireStopStreamingRequestReceiver>)requestReceiver;
++ (void)registerStopStreamingRequestHandler:(void (^)(id<TwipWireStopStreamingResultSender> resultSender, NSString * golgiId))requestHandler;
 
-+ (void)sendStartStreamingUsingResultReceiver:(id<TwipWireStartStreamingResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter;
 + (void)sendStartStreamingUsingResultReceiver:(id<TwipWireStartStreamingResultReceiver>)resultReceiver andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter;
++ (void)sendStartStreamingUsingResultReceiver:(id<TwipWireStartStreamingResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter;
++ (void)sendStartStreamingUsingResultHandler:(void (^)(TwipWireStartStreamingExceptionBundle *))resultHandler andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter;
++ (void)sendStartStreamingUsingResultHandler:(void (^)(TwipWireStartStreamingExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter;
++ (void)sendStartStreamingUsingResultReceiver:(id<TwipWireStartStreamingResultReceiver>)resultReceiver orResultHandler:(void (^)(TwipWireStartStreamingExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter;
 + (void)registerStartStreamingRequestReceiver:(id<TwipWireStartStreamingRequestReceiver>)requestReceiver;
++ (void)registerStartStreamingRequestHandler:(void (^)(id<TwipWireStartStreamingResultSender> resultSender, TweetFilter * filter))requestHandler;
 
-+ (void)sendNewTweetUsingResultReceiver:(id<TwipWireNewTweetResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails;
 + (void)sendNewTweetUsingResultReceiver:(id<TwipWireNewTweetResultReceiver>)resultReceiver andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails;
++ (void)sendNewTweetUsingResultReceiver:(id<TwipWireNewTweetResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails;
++ (void)sendNewTweetUsingResultHandler:(void (^)(TwipWireNewTweetExceptionBundle *))resultHandler andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails;
++ (void)sendNewTweetUsingResultHandler:(void (^)(TwipWireNewTweetExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails;
++ (void)sendNewTweetUsingResultReceiver:(id<TwipWireNewTweetResultReceiver>)resultReceiver orResultHandler:(void (^)(TwipWireNewTweetExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails;
 + (void)registerNewTweetRequestReceiver:(id<TwipWireNewTweetRequestReceiver>)requestReceiver;
++ (void)registerNewTweetRequestHandler:(void (^)(id<TwipWireNewTweetResultSender> resultSender, TweetDetails * tweetDetails))requestHandler;
 
 @end

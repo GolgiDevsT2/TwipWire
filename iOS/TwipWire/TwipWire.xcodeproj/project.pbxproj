@@ -308,7 +308,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "WKDIR=\"$PROJECT_DIR/$PROJECT_NAME\"\ncp -f \"$PROJECT_DIR/../../TwipWire.thrift\" \"$WKDIR\"\n\necho \"Hello\"\nDEVKEY=`cat \"$PROJECT_DIR/../../Golgi.DevKey\"`\nAPPKEY=`cat \"$PROJECT_DIR/../../Golgi.AppKey\"`\necho 1 $DEVKEY\necho 2 $APPKEY\necho \"#define GOLGI_DEV_KEY @\\\"$DEVKEY\\\"\" >\"$WKDIR/GOLGI_KEYS.h\"\necho \"#define GOLGI_APP_KEY @\\\"$APPKEY\\\"\" >>\"$WKDIR/GOLGI_KEYS.h\"\ncp \"$HOME/Golgi-Pkg/LATEST/iOS/golgi_gen.sh\" \"$WKDIR\"\nchmod +w \"$WKDIR/golgi_gen.sh\"\n. \"$WKDIR/golgi_gen.sh\"\nrm -f \"$WKDIR/golgi_gen.sh\"\nrm -f \"$WKDIR/TwipWire.thrift\"\n\n";
+			shellScript = "#\n# GOLGI_WORK_DIR: Where the golgi_gen script will copied to run\n# GOLGI_PKG_DIR: The Golgi Package install directory\n# GOLGI_LIB_DIR: Where the Golgi runtime libraries whould be put\n#\n\nGOLGI_WORK_DIR=\"$PROJECT_DIR/$PROJECT_NAME\"\nGOLGI_PKG_DIR=\"$HOME/Golgi-Pkg/LATEST\"\nGOLGI_HDR_DIR=\"$PROJECT_DIR/$PROJECT_NAME\"\nGOLGI_LIB_DIR=\"$PROJECT_DIR/$PROJECT_NAME\"\n\n#\n# Copy Thrift file(s) into place (if necessary)\n#\n\ncp -f \"$PROJECT_DIR/../../TwipWire.thrift\" \"$WKDIR\"\n\n#\n# Create the GOLGI_KEYS.h file containing\n# the Developer key and the application key\n#\n\nDEVKEY=`cat \"$PROJECT_DIR/../../Golgi.DevKey\"`\nAPPKEY=`cat \"$PROJECT_DIR/../../Golgi.AppKey\"`\necho \"#define GOLGI_DEV_KEY @\\\"$DEVKEY\\\"\" >\"$GOLGI_WORK_DIR/GOLGI_KEYS.h\"\necho \"#define GOLGI_APP_KEY @\\\"$APPKEY\\\"\" >>\"$GOLGI_WORK_DIR/GOLGI_KEYS.h\"\n\n\n. \"$GOLGI_PKG_DIR/iOS/golgi_gen.sh\"\n\n#\n# Remove the thrift file because the canonical source is elsewhere\n#\n\nrm -f \"$GOLGI_WORK_DIR/TwipWire.thrift\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

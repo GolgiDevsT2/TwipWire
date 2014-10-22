@@ -66,16 +66,16 @@
 
 - (NSString *)serialiseWithPrefix:(NSString *)prefix
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *_str = [[NSMutableString alloc] init];
 
     if(golgiIdIsSet){
-        [str appendFormat:@"%@1: \"%@\"\n", prefix, [CSL  NTLEscapeString:golgiId]];
+        [_str appendFormat:@"%@1: \"%@\"\n", prefix, [CSL  NTLEscapeString:golgiId]];
     }
     if(queryIsSet){
-        [str appendFormat:@"%@2: \"%@\"\n", prefix, [CSL  NTLEscapeString:query]];
+        [_str appendFormat:@"%@2: \"%@\"\n", prefix, [CSL  NTLEscapeString:query]];
     }
 
-    return [NSString stringWithString:str];
+    return [NSString stringWithString:_str];
 }
 
 - (TweetFilter *)init
@@ -220,25 +220,25 @@
 
 - (NSString *)serialiseWithPrefix:(NSString *)prefix
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *_str = [[NSMutableString alloc] init];
 
     if(usernameIsSet){
-        [str appendFormat:@"%@1: \"%@\"\n", prefix, [CSL  NTLEscapeString:username]];
+        [_str appendFormat:@"%@1: \"%@\"\n", prefix, [CSL  NTLEscapeString:username]];
     }
     if(nameIsSet){
-        [str appendFormat:@"%@2: \"%@\"\n", prefix, [CSL  NTLEscapeString:name]];
+        [_str appendFormat:@"%@2: \"%@\"\n", prefix, [CSL  NTLEscapeString:name]];
     }
     if(imageIsSet){
-        [str appendFormat:@"%@3: [%@]\n", prefix, [GolgiB64 encodeData:image withNewLines:NO]];
+        [_str appendFormat:@"%@3: [%@]\n", prefix, [GolgiB64 encodeData:image withNewLines:NO]];
     }
     if(timestampIsSet){
-        [str appendFormat:@"%@4: %ld\n", prefix, (long)timestamp];
+        [_str appendFormat:@"%@4: %ld\n", prefix, (long)timestamp];
     }
     if(textIsSet){
-        [str appendFormat:@"%@5: \"%@\"\n", prefix, [CSL  NTLEscapeString:text]];
+        [_str appendFormat:@"%@5: \"%@\"\n", prefix, [CSL  NTLEscapeString:text]];
     }
 
-    return [NSString stringWithString:str];
+    return [NSString stringWithString:_str];
 }
 
 - (TweetDetails *)init
@@ -301,11 +301,11 @@
 }
 - (NSString *)serialiseWithPrefix:(NSString *)prefix
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *_str = [[NSMutableString alloc] init];
     if(golgiIdIsSet){
-        [str appendFormat:@"%@1: \"%@\"\n", prefix, [CSL  NTLEscapeString:golgiId]];
+        [_str appendFormat:@"%@1: \"%@\"\n", prefix, [CSL  NTLEscapeString:golgiId]];
     }
-    return [NSString stringWithString:str];
+    return [NSString stringWithString:_str];
 }
 - (TwipWire_stopStreaming_reqArg *)init
 {
@@ -372,14 +372,14 @@
 }
 - (NSString *)serialiseWithPrefix:(NSString *)prefix
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *_str = [[NSMutableString alloc] init];
     if(internalSuccess_IsSet){
-        [str appendFormat:@"%@1: %ld\n", prefix, (long)internalSuccess_];
+        [_str appendFormat:@"%@1: %ld\n", prefix, (long)internalSuccess_];
     }
     if(golgiExceptionIsSet){
-        [str appendString:[golgiException serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "3"]]];
+        [_str appendString:[golgiException serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "3"]]];
     }
-    return [NSString stringWithString:str];
+    return [NSString stringWithString:_str];
 }
 - (TwipWire_stopStreaming_rspArg *)init
 {
@@ -432,11 +432,11 @@
 }
 - (NSString *)serialiseWithPrefix:(NSString *)prefix
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *_str = [[NSMutableString alloc] init];
     if(filterIsSet){
-        [str appendString:[filter serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "1"]]];
+        [_str appendString:[filter serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "1"]]];
     }
-    return [NSString stringWithString:str];
+    return [NSString stringWithString:_str];
 }
 - (TwipWire_startStreaming_reqArg *)init
 {
@@ -503,14 +503,14 @@
 }
 - (NSString *)serialiseWithPrefix:(NSString *)prefix
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *_str = [[NSMutableString alloc] init];
     if(internalSuccess_IsSet){
-        [str appendFormat:@"%@1: %ld\n", prefix, (long)internalSuccess_];
+        [_str appendFormat:@"%@1: %ld\n", prefix, (long)internalSuccess_];
     }
     if(golgiExceptionIsSet){
-        [str appendString:[golgiException serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "3"]]];
+        [_str appendString:[golgiException serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "3"]]];
     }
-    return [NSString stringWithString:str];
+    return [NSString stringWithString:_str];
 }
 - (TwipWire_startStreaming_rspArg *)init
 {
@@ -563,11 +563,11 @@
 }
 - (NSString *)serialiseWithPrefix:(NSString *)prefix
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *_str = [[NSMutableString alloc] init];
     if(tweetDetailsIsSet){
-        [str appendString:[tweetDetails serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "1"]]];
+        [_str appendString:[tweetDetails serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "1"]]];
     }
-    return [NSString stringWithString:str];
+    return [NSString stringWithString:_str];
 }
 - (TwipWire_newTweet_reqArg *)init
 {
@@ -634,14 +634,14 @@
 }
 - (NSString *)serialiseWithPrefix:(NSString *)prefix
 {
-    NSMutableString *str = [[NSMutableString alloc] init];
+    NSMutableString *_str = [[NSMutableString alloc] init];
     if(internalSuccess_IsSet){
-        [str appendFormat:@"%@1: %ld\n", prefix, (long)internalSuccess_];
+        [_str appendFormat:@"%@1: %ld\n", prefix, (long)internalSuccess_];
     }
     if(golgiExceptionIsSet){
-        [str appendString:[golgiException serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "3"]]];
+        [_str appendString:[golgiException serialiseWithPrefix:[NSString stringWithFormat:@"%@%s.", prefix, "3"]]];
     }
-    return [NSString stringWithString:str];
+    return [NSString stringWithString:_str];
 }
 - (TwipWire_newTweet_rspArg *)init
 {
@@ -655,6 +655,15 @@
     return self;
 }
 @end
+@implementation TwipWireStopStreamingExceptionBundle
+@synthesize golgiException;
+- (TwipWireStopStreamingExceptionBundle *) init
+{
+    self = [super init];
+    golgiException = nil;
+    return self;
+}
+@end
 
 @interface StopStreamingInternalResultSender : NSObject <TwipWireStopStreamingResultSender>
 {
@@ -665,6 +674,11 @@
 - (StopStreamingInternalResultSender *) initWithSender:(NSString *)sender andMessageId:(NSString *)msgId;
 @end
 @implementation StopStreamingInternalResultSender
+- (NSString *)getRequestSenderId
+{
+    return sender;
+}
+
 - (StopStreamingInternalResultSender *) initWithSender:(NSString *)_sender andMessageId:(NSString *)_msgId
 {
     self = [self init];
@@ -697,9 +711,11 @@
 @interface StopStreamingInternalRequestHandler : NSObject <GolgiInternalInboundRequestHandler>
 {
     id<TwipWireStopStreamingRequestReceiver> receiver;
+    void (^userHandler)(id<TwipWireStopStreamingResultSender> resultSender, NSString * golgiId);
 }
 
 - (StopStreamingInternalRequestHandler *)initWithReceiver:(id<TwipWireStopStreamingRequestReceiver>)receiver;
+- (StopStreamingInternalRequestHandler *)initWithHandler:(void (^)(id<TwipWireStopStreamingResultSender> resultSender, NSString * golgiId))userHandler;
 @end
 
 @implementation StopStreamingInternalRequestHandler
@@ -716,7 +732,11 @@
         StopStreamingInternalResultSender *resultSender;
         resultSender = [StopStreamingInternalResultSender alloc];
         resultSender = [resultSender initWithSender:sender andMessageId:msgId];
-        [receiver stopStreamingWithResultSender:resultSender andGolgiId:[req getGolgiId]];
+        if(receiver != nil){
+            [receiver stopStreamingWithResultSender:resultSender andGolgiId:[req getGolgiId]];
+        }
+        else if(userHandler != nil){
+            userHandler(resultSender, [req getGolgiId]);    }
     }
 }
 
@@ -727,33 +747,59 @@
 
     return self;
 }
+- (StopStreamingInternalRequestHandler *)initWithHandler:(void (^)(id<TwipWireStopStreamingResultSender> resultSender, NSString * golgiId))_userHandler
+{
+    self = [self init];
+    userHandler = _userHandler;
+
+    return self;
+}
 @end
 
 @interface StopStreamingInternalResponseHandler : NSObject <GolgiInternalInboundResponseHandler>
 {
     id<TwipWireStopStreamingResultReceiver> receiver;
+    void (^handler)(TwipWireStopStreamingExceptionBundle *exceptionBundle);
 }
 
-- (StopStreamingInternalResponseHandler *)initWithReceiver:(id<TwipWireStopStreamingResultReceiver>)receiver;
+- (StopStreamingInternalResponseHandler *)initWithReceiver:(id<TwipWireStopStreamingResultReceiver>)receiver orHandler:(void (^)(TwipWireStopStreamingExceptionBundle *exceptionBundle))handler;
 @end
 @implementation StopStreamingInternalResponseHandler
 
 - (void)processResponsePayload:(NSString *)payload
 {
     TwipWire_stopStreaming_rspArg *rsp = [TwipWire_stopStreaming_rspArg deserialiseFromString:payload];
+    TwipWireStopStreamingExceptionBundle *exBundle = [[TwipWireStopStreamingExceptionBundle alloc] init];
 
     if(rsp == nil){
         GolgiException *golgiException = [[GolgiException alloc]init];
 
         [golgiException setErrText:@"Corrupt Response"];
         [golgiException setErrType:GOLGI_ERRTYPE_PAYLOAD_MISMATCH];
-        [receiver failureWithGolgiException:golgiException];
+        if(receiver != nil){
+            [receiver failureWithGolgiException:golgiException];
+        }
+        else{ // Must have a handler
+            exBundle.golgiException = golgiException;
+            handler(exBundle);
+        }
     }
     else if(rsp.internalSuccess_IsSet && ([rsp getInternalSuccess_] != 0)){
-        [receiver success];
+        if(receiver != nil){
+            [receiver success];
+        }
+        else{ // Must have a handler
+            handler(nil);
+        }
     }
     else if(rsp.golgiExceptionIsSet){
-        [receiver failureWithGolgiException:[rsp getGolgiException]];
+        if(receiver != nil){
+            [receiver failureWithGolgiException:[rsp getGolgiException]];
+        }
+        else{ // Must have a handler
+            exBundle.golgiException = [rsp getGolgiException];
+            handler(exBundle);
+        }
     }
     else{
         NSLog(@"WARNING: result for 'stopStreaming' in Golgi Service 'TwipWire' has no expected response fields set!");
@@ -766,15 +812,25 @@
 	[receiver failureWithGolgiException:golgiException];
 }
 
-- (StopStreamingInternalResponseHandler *)initWithReceiver:(id<TwipWireStopStreamingResultReceiver>)_receiver
+- (StopStreamingInternalResponseHandler *)initWithReceiver:(id<TwipWireStopStreamingResultReceiver>)_receiver orHandler:(void (^)(TwipWireStopStreamingExceptionBundle *exceptionBundle))_handler
 {
     self = [self init];
     receiver = _receiver;
+    handler = _handler;
     return self;
 }
 
 @end
 
+@implementation TwipWireStartStreamingExceptionBundle
+@synthesize golgiException;
+- (TwipWireStartStreamingExceptionBundle *) init
+{
+    self = [super init];
+    golgiException = nil;
+    return self;
+}
+@end
 
 @interface StartStreamingInternalResultSender : NSObject <TwipWireStartStreamingResultSender>
 {
@@ -785,6 +841,11 @@
 - (StartStreamingInternalResultSender *) initWithSender:(NSString *)sender andMessageId:(NSString *)msgId;
 @end
 @implementation StartStreamingInternalResultSender
+- (NSString *)getRequestSenderId
+{
+    return sender;
+}
+
 - (StartStreamingInternalResultSender *) initWithSender:(NSString *)_sender andMessageId:(NSString *)_msgId
 {
     self = [self init];
@@ -817,9 +878,11 @@
 @interface StartStreamingInternalRequestHandler : NSObject <GolgiInternalInboundRequestHandler>
 {
     id<TwipWireStartStreamingRequestReceiver> receiver;
+    void (^userHandler)(id<TwipWireStartStreamingResultSender> resultSender, TweetFilter * filter);
 }
 
 - (StartStreamingInternalRequestHandler *)initWithReceiver:(id<TwipWireStartStreamingRequestReceiver>)receiver;
+- (StartStreamingInternalRequestHandler *)initWithHandler:(void (^)(id<TwipWireStartStreamingResultSender> resultSender, TweetFilter * filter))userHandler;
 @end
 
 @implementation StartStreamingInternalRequestHandler
@@ -836,7 +899,11 @@
         StartStreamingInternalResultSender *resultSender;
         resultSender = [StartStreamingInternalResultSender alloc];
         resultSender = [resultSender initWithSender:sender andMessageId:msgId];
-        [receiver startStreamingWithResultSender:resultSender andFilter:[req getFilter]];
+        if(receiver != nil){
+            [receiver startStreamingWithResultSender:resultSender andFilter:[req getFilter]];
+        }
+        else if(userHandler != nil){
+            userHandler(resultSender, [req getFilter]);    }
     }
 }
 
@@ -847,33 +914,59 @@
 
     return self;
 }
+- (StartStreamingInternalRequestHandler *)initWithHandler:(void (^)(id<TwipWireStartStreamingResultSender> resultSender, TweetFilter * filter))_userHandler
+{
+    self = [self init];
+    userHandler = _userHandler;
+
+    return self;
+}
 @end
 
 @interface StartStreamingInternalResponseHandler : NSObject <GolgiInternalInboundResponseHandler>
 {
     id<TwipWireStartStreamingResultReceiver> receiver;
+    void (^handler)(TwipWireStartStreamingExceptionBundle *exceptionBundle);
 }
 
-- (StartStreamingInternalResponseHandler *)initWithReceiver:(id<TwipWireStartStreamingResultReceiver>)receiver;
+- (StartStreamingInternalResponseHandler *)initWithReceiver:(id<TwipWireStartStreamingResultReceiver>)receiver orHandler:(void (^)(TwipWireStartStreamingExceptionBundle *exceptionBundle))handler;
 @end
 @implementation StartStreamingInternalResponseHandler
 
 - (void)processResponsePayload:(NSString *)payload
 {
     TwipWire_startStreaming_rspArg *rsp = [TwipWire_startStreaming_rspArg deserialiseFromString:payload];
+    TwipWireStartStreamingExceptionBundle *exBundle = [[TwipWireStartStreamingExceptionBundle alloc] init];
 
     if(rsp == nil){
         GolgiException *golgiException = [[GolgiException alloc]init];
 
         [golgiException setErrText:@"Corrupt Response"];
         [golgiException setErrType:GOLGI_ERRTYPE_PAYLOAD_MISMATCH];
-        [receiver failureWithGolgiException:golgiException];
+        if(receiver != nil){
+            [receiver failureWithGolgiException:golgiException];
+        }
+        else{ // Must have a handler
+            exBundle.golgiException = golgiException;
+            handler(exBundle);
+        }
     }
     else if(rsp.internalSuccess_IsSet && ([rsp getInternalSuccess_] != 0)){
-        [receiver success];
+        if(receiver != nil){
+            [receiver success];
+        }
+        else{ // Must have a handler
+            handler(nil);
+        }
     }
     else if(rsp.golgiExceptionIsSet){
-        [receiver failureWithGolgiException:[rsp getGolgiException]];
+        if(receiver != nil){
+            [receiver failureWithGolgiException:[rsp getGolgiException]];
+        }
+        else{ // Must have a handler
+            exBundle.golgiException = [rsp getGolgiException];
+            handler(exBundle);
+        }
     }
     else{
         NSLog(@"WARNING: result for 'startStreaming' in Golgi Service 'TwipWire' has no expected response fields set!");
@@ -886,15 +979,25 @@
 	[receiver failureWithGolgiException:golgiException];
 }
 
-- (StartStreamingInternalResponseHandler *)initWithReceiver:(id<TwipWireStartStreamingResultReceiver>)_receiver
+- (StartStreamingInternalResponseHandler *)initWithReceiver:(id<TwipWireStartStreamingResultReceiver>)_receiver orHandler:(void (^)(TwipWireStartStreamingExceptionBundle *exceptionBundle))_handler
 {
     self = [self init];
     receiver = _receiver;
+    handler = _handler;
     return self;
 }
 
 @end
 
+@implementation TwipWireNewTweetExceptionBundle
+@synthesize golgiException;
+- (TwipWireNewTweetExceptionBundle *) init
+{
+    self = [super init];
+    golgiException = nil;
+    return self;
+}
+@end
 
 @interface NewTweetInternalResultSender : NSObject <TwipWireNewTweetResultSender>
 {
@@ -905,6 +1008,11 @@
 - (NewTweetInternalResultSender *) initWithSender:(NSString *)sender andMessageId:(NSString *)msgId;
 @end
 @implementation NewTweetInternalResultSender
+- (NSString *)getRequestSenderId
+{
+    return sender;
+}
+
 - (NewTweetInternalResultSender *) initWithSender:(NSString *)_sender andMessageId:(NSString *)_msgId
 {
     self = [self init];
@@ -937,9 +1045,11 @@
 @interface NewTweetInternalRequestHandler : NSObject <GolgiInternalInboundRequestHandler>
 {
     id<TwipWireNewTweetRequestReceiver> receiver;
+    void (^userHandler)(id<TwipWireNewTweetResultSender> resultSender, TweetDetails * tweetDetails);
 }
 
 - (NewTweetInternalRequestHandler *)initWithReceiver:(id<TwipWireNewTweetRequestReceiver>)receiver;
+- (NewTweetInternalRequestHandler *)initWithHandler:(void (^)(id<TwipWireNewTweetResultSender> resultSender, TweetDetails * tweetDetails))userHandler;
 @end
 
 @implementation NewTweetInternalRequestHandler
@@ -956,7 +1066,11 @@
         NewTweetInternalResultSender *resultSender;
         resultSender = [NewTweetInternalResultSender alloc];
         resultSender = [resultSender initWithSender:sender andMessageId:msgId];
-        [receiver newTweetWithResultSender:resultSender andTweetDetails:[req getTweetDetails]];
+        if(receiver != nil){
+            [receiver newTweetWithResultSender:resultSender andTweetDetails:[req getTweetDetails]];
+        }
+        else if(userHandler != nil){
+            userHandler(resultSender, [req getTweetDetails]);    }
     }
 }
 
@@ -967,33 +1081,59 @@
 
     return self;
 }
+- (NewTweetInternalRequestHandler *)initWithHandler:(void (^)(id<TwipWireNewTweetResultSender> resultSender, TweetDetails * tweetDetails))_userHandler
+{
+    self = [self init];
+    userHandler = _userHandler;
+
+    return self;
+}
 @end
 
 @interface NewTweetInternalResponseHandler : NSObject <GolgiInternalInboundResponseHandler>
 {
     id<TwipWireNewTweetResultReceiver> receiver;
+    void (^handler)(TwipWireNewTweetExceptionBundle *exceptionBundle);
 }
 
-- (NewTweetInternalResponseHandler *)initWithReceiver:(id<TwipWireNewTweetResultReceiver>)receiver;
+- (NewTweetInternalResponseHandler *)initWithReceiver:(id<TwipWireNewTweetResultReceiver>)receiver orHandler:(void (^)(TwipWireNewTweetExceptionBundle *exceptionBundle))handler;
 @end
 @implementation NewTweetInternalResponseHandler
 
 - (void)processResponsePayload:(NSString *)payload
 {
     TwipWire_newTweet_rspArg *rsp = [TwipWire_newTweet_rspArg deserialiseFromString:payload];
+    TwipWireNewTweetExceptionBundle *exBundle = [[TwipWireNewTweetExceptionBundle alloc] init];
 
     if(rsp == nil){
         GolgiException *golgiException = [[GolgiException alloc]init];
 
         [golgiException setErrText:@"Corrupt Response"];
         [golgiException setErrType:GOLGI_ERRTYPE_PAYLOAD_MISMATCH];
-        [receiver failureWithGolgiException:golgiException];
+        if(receiver != nil){
+            [receiver failureWithGolgiException:golgiException];
+        }
+        else{ // Must have a handler
+            exBundle.golgiException = golgiException;
+            handler(exBundle);
+        }
     }
     else if(rsp.internalSuccess_IsSet && ([rsp getInternalSuccess_] != 0)){
-        [receiver success];
+        if(receiver != nil){
+            [receiver success];
+        }
+        else{ // Must have a handler
+            handler(nil);
+        }
     }
     else if(rsp.golgiExceptionIsSet){
-        [receiver failureWithGolgiException:[rsp getGolgiException]];
+        if(receiver != nil){
+            [receiver failureWithGolgiException:[rsp getGolgiException]];
+        }
+        else{ // Must have a handler
+            exBundle.golgiException = [rsp getGolgiException];
+            handler(exBundle);
+        }
     }
     else{
         NSLog(@"WARNING: result for 'newTweet' in Golgi Service 'TwipWire' has no expected response fields set!");
@@ -1006,10 +1146,11 @@
 	[receiver failureWithGolgiException:golgiException];
 }
 
-- (NewTweetInternalResponseHandler *)initWithReceiver:(id<TwipWireNewTweetResultReceiver>)_receiver
+- (NewTweetInternalResponseHandler *)initWithReceiver:(id<TwipWireNewTweetResultReceiver>)_receiver orHandler:(void (^)(TwipWireNewTweetExceptionBundle *exceptionBundle))_handler
 {
     self = [self init];
     receiver = _receiver;
+    handler = _handler;
     return self;
 }
 
@@ -1026,21 +1167,50 @@
 //
 // stopStreaming
 //
++ (void)sendStopStreamingUsingResultHandler:(void (^)(TwipWireStopStreamingExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId
+{
+    [self sendStopStreamingUsingResultReceiver:nil
+        orResultHandler:resultHandler
+        withTransportOptions:options
+        andDestination:_dst
+        withGolgiId:golgiId];
+}
+
++ (void)sendStopStreamingUsingResultHandler:(void (^)(TwipWireStopStreamingExceptionBundle *))resultHandler andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId
+{
+    [self sendStopStreamingUsingResultHandler:resultHandler
+        withTransportOptions:nil
+        andDestination:_dst
+        withGolgiId:golgiId];
+}
+
++ (void)sendStopStreamingUsingResultReceiver:(id<TwipWireStopStreamingResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId
+{
+    [self sendStopStreamingUsingResultReceiver:resultReceiver
+        orResultHandler:nil
+        withTransportOptions:options
+        andDestination:_dst
+        withGolgiId:golgiId];
+}
+
 + (void)sendStopStreamingUsingResultReceiver:(id<TwipWireStopStreamingResultReceiver>)resultReceiver andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId
 {
-    [self sendStopStreamingUsingResultReceiver:resultReceiver withTransportOptions:nil andDestination:_dst withGolgiId:golgiId];
+    [self sendStopStreamingUsingResultReceiver:resultReceiver
+        withTransportOptions:nil
+        andDestination:_dst
+        withGolgiId:golgiId];
 }
 
 //
-// stopStreaming with transport options
+// stopStreaming with transport options and receiver/handler
 //
-+ (void)sendStopStreamingUsingResultReceiver:(id<TwipWireStopStreamingResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId
++ (void)sendStopStreamingUsingResultReceiver:(id<TwipWireStopStreamingResultReceiver>)resultReceiver orResultHandler:(void (^)(TwipWireStopStreamingExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId
 {
     NSString *_payload;
     TwipWire_stopStreaming_reqArg *_reqArg = [[TwipWire_stopStreaming_reqArg alloc] init];
     StopStreamingInternalResponseHandler *_iRspHndlr;
     _iRspHndlr = [StopStreamingInternalResponseHandler alloc];
-    _iRspHndlr = [_iRspHndlr initWithReceiver:resultReceiver];
+    _iRspHndlr = [_iRspHndlr initWithReceiver:resultReceiver orHandler:resultHandler];
 
     [_reqArg setGolgiId:golgiId];
     _payload = [_reqArg serialise];
@@ -1048,6 +1218,11 @@
     [Golgi sendRequestPayload:_payload withTransportOptions:options to:_dst withMethod:@"stopStreaming.TwipWire" andResponseHandler:_iRspHndlr];
 
 }
+
+//
+// stopStreaming using closure
+//
+// + (void)sendStopStreamingUsingResultHandler:(void (^)(TwipWireStopStreamingExceptionBundle *))resultHandler andDestination:(NSString *)_dst withGolgiId:(NSString *)golgiId
 
 + (void)registerStopStreamingRequestReceiver:(id<TwipWireStopStreamingRequestReceiver>)requestReceiver
 {
@@ -1057,24 +1232,61 @@
     [Golgi registerRequestHandler:reqHandler forMethod:@"stopStreaming.TwipWire"];
 }
 
-//
-// startStreaming
-//
-+ (void)sendStartStreamingUsingResultReceiver:(id<TwipWireStartStreamingResultReceiver>)resultReceiver andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter
++ (void)registerStopStreamingRequestHandler:(void (^)(id<TwipWireStopStreamingResultSender> resultSender, NSString * golgiId))requestHandler;
 {
-    [self sendStartStreamingUsingResultReceiver:resultReceiver withTransportOptions:nil andDestination:_dst withFilter:filter];
+    StopStreamingInternalRequestHandler *reqHandler;
+    reqHandler = [StopStreamingInternalRequestHandler alloc];
+    reqHandler = [reqHandler initWithHandler:requestHandler];
+    [Golgi registerRequestHandler:reqHandler forMethod:@"stopStreaming.TwipWire"];
 }
 
 //
-// startStreaming with transport options
+// startStreaming
 //
++ (void)sendStartStreamingUsingResultHandler:(void (^)(TwipWireStartStreamingExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter
+{
+    [self sendStartStreamingUsingResultReceiver:nil
+        orResultHandler:resultHandler
+        withTransportOptions:options
+        andDestination:_dst
+        withFilter:filter];
+}
+
++ (void)sendStartStreamingUsingResultHandler:(void (^)(TwipWireStartStreamingExceptionBundle *))resultHandler andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter
+{
+    [self sendStartStreamingUsingResultHandler:resultHandler
+        withTransportOptions:nil
+        andDestination:_dst
+        withFilter:filter];
+}
+
 + (void)sendStartStreamingUsingResultReceiver:(id<TwipWireStartStreamingResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter
+{
+    [self sendStartStreamingUsingResultReceiver:resultReceiver
+        orResultHandler:nil
+        withTransportOptions:options
+        andDestination:_dst
+        withFilter:filter];
+}
+
++ (void)sendStartStreamingUsingResultReceiver:(id<TwipWireStartStreamingResultReceiver>)resultReceiver andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter
+{
+    [self sendStartStreamingUsingResultReceiver:resultReceiver
+        withTransportOptions:nil
+        andDestination:_dst
+        withFilter:filter];
+}
+
+//
+// startStreaming with transport options and receiver/handler
+//
++ (void)sendStartStreamingUsingResultReceiver:(id<TwipWireStartStreamingResultReceiver>)resultReceiver orResultHandler:(void (^)(TwipWireStartStreamingExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter
 {
     NSString *_payload;
     TwipWire_startStreaming_reqArg *_reqArg = [[TwipWire_startStreaming_reqArg alloc] init];
     StartStreamingInternalResponseHandler *_iRspHndlr;
     _iRspHndlr = [StartStreamingInternalResponseHandler alloc];
-    _iRspHndlr = [_iRspHndlr initWithReceiver:resultReceiver];
+    _iRspHndlr = [_iRspHndlr initWithReceiver:resultReceiver orHandler:resultHandler];
 
     [_reqArg setFilter:filter];
     _payload = [_reqArg serialise];
@@ -1082,6 +1294,11 @@
     [Golgi sendRequestPayload:_payload withTransportOptions:options to:_dst withMethod:@"startStreaming.TwipWire" andResponseHandler:_iRspHndlr];
 
 }
+
+//
+// startStreaming using closure
+//
+// + (void)sendStartStreamingUsingResultHandler:(void (^)(TwipWireStartStreamingExceptionBundle *))resultHandler andDestination:(NSString *)_dst withFilter:(TweetFilter *)filter
 
 + (void)registerStartStreamingRequestReceiver:(id<TwipWireStartStreamingRequestReceiver>)requestReceiver
 {
@@ -1091,24 +1308,61 @@
     [Golgi registerRequestHandler:reqHandler forMethod:@"startStreaming.TwipWire"];
 }
 
-//
-// newTweet
-//
-+ (void)sendNewTweetUsingResultReceiver:(id<TwipWireNewTweetResultReceiver>)resultReceiver andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails
++ (void)registerStartStreamingRequestHandler:(void (^)(id<TwipWireStartStreamingResultSender> resultSender, TweetFilter * filter))requestHandler;
 {
-    [self sendNewTweetUsingResultReceiver:resultReceiver withTransportOptions:nil andDestination:_dst withTweetDetails:tweetDetails];
+    StartStreamingInternalRequestHandler *reqHandler;
+    reqHandler = [StartStreamingInternalRequestHandler alloc];
+    reqHandler = [reqHandler initWithHandler:requestHandler];
+    [Golgi registerRequestHandler:reqHandler forMethod:@"startStreaming.TwipWire"];
 }
 
 //
-// newTweet with transport options
+// newTweet
 //
++ (void)sendNewTweetUsingResultHandler:(void (^)(TwipWireNewTweetExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails
+{
+    [self sendNewTweetUsingResultReceiver:nil
+        orResultHandler:resultHandler
+        withTransportOptions:options
+        andDestination:_dst
+        withTweetDetails:tweetDetails];
+}
+
++ (void)sendNewTweetUsingResultHandler:(void (^)(TwipWireNewTweetExceptionBundle *))resultHandler andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails
+{
+    [self sendNewTweetUsingResultHandler:resultHandler
+        withTransportOptions:nil
+        andDestination:_dst
+        withTweetDetails:tweetDetails];
+}
+
 + (void)sendNewTweetUsingResultReceiver:(id<TwipWireNewTweetResultReceiver>)resultReceiver withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails
+{
+    [self sendNewTweetUsingResultReceiver:resultReceiver
+        orResultHandler:nil
+        withTransportOptions:options
+        andDestination:_dst
+        withTweetDetails:tweetDetails];
+}
+
++ (void)sendNewTweetUsingResultReceiver:(id<TwipWireNewTweetResultReceiver>)resultReceiver andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails
+{
+    [self sendNewTweetUsingResultReceiver:resultReceiver
+        withTransportOptions:nil
+        andDestination:_dst
+        withTweetDetails:tweetDetails];
+}
+
+//
+// newTweet with transport options and receiver/handler
+//
++ (void)sendNewTweetUsingResultReceiver:(id<TwipWireNewTweetResultReceiver>)resultReceiver orResultHandler:(void (^)(TwipWireNewTweetExceptionBundle *))resultHandler withTransportOptions:(GolgiTransportOptions *)options andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails
 {
     NSString *_payload;
     TwipWire_newTweet_reqArg *_reqArg = [[TwipWire_newTweet_reqArg alloc] init];
     NewTweetInternalResponseHandler *_iRspHndlr;
     _iRspHndlr = [NewTweetInternalResponseHandler alloc];
-    _iRspHndlr = [_iRspHndlr initWithReceiver:resultReceiver];
+    _iRspHndlr = [_iRspHndlr initWithReceiver:resultReceiver orHandler:resultHandler];
 
     [_reqArg setTweetDetails:tweetDetails];
     _payload = [_reqArg serialise];
@@ -1117,11 +1371,24 @@
 
 }
 
+//
+// newTweet using closure
+//
+// + (void)sendNewTweetUsingResultHandler:(void (^)(TwipWireNewTweetExceptionBundle *))resultHandler andDestination:(NSString *)_dst withTweetDetails:(TweetDetails *)tweetDetails
+
 + (void)registerNewTweetRequestReceiver:(id<TwipWireNewTweetRequestReceiver>)requestReceiver
 {
     NewTweetInternalRequestHandler *reqHandler;
     reqHandler = [NewTweetInternalRequestHandler alloc];
     reqHandler = [reqHandler initWithReceiver:requestReceiver];
+    [Golgi registerRequestHandler:reqHandler forMethod:@"newTweet.TwipWire"];
+}
+
++ (void)registerNewTweetRequestHandler:(void (^)(id<TwipWireNewTweetResultSender> resultSender, TweetDetails * tweetDetails))requestHandler;
+{
+    NewTweetInternalRequestHandler *reqHandler;
+    reqHandler = [NewTweetInternalRequestHandler alloc];
+    reqHandler = [reqHandler initWithHandler:requestHandler];
     [Golgi registerRequestHandler:reqHandler forMethod:@"newTweet.TwipWire"];
 }
 

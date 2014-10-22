@@ -13,78 +13,6 @@
 #import "TwipWireSvcWrapper.h"
 
 
-
-@interface _StartStreamingResultReceiver: NSObject <TwipWireStartStreamingResultReceiver>
-@end
-@implementation _StartStreamingResultReceiver
-- (void)success
-{
-    NSLog(@"startStreaming: SUCCESS");
-}
-
-- (void)failureWithGolgiException:(GolgiException *)golgiException
-{
-    NSLog(@"startStreaming: FAILED '%@'", [golgiException getErrText]);
-}
-
-@end
-@interface _StopStreamingResultReceiver: NSObject <TwipWireStopStreamingResultReceiver>
-@end
-@implementation _StopStreamingResultReceiver
-- (void)success
-{
-    NSLog(@"stopStreaming: SUCCESS");
-}
-
-- (void)failureWithGolgiException:(GolgiException *)golgiException
-{
-    NSLog(@"stopStreaming: FAILED '%@'", [golgiException getErrText]);
-}
-
-@end
-
-@interface CombinedRequestReceiver: NSObject <TwipWireNewTweetRequestReceiver>
-{
-    ViewController *viewController;
-    GolgiStuff *golgiStuff;
-}
-- (CombinedRequestReceiver *)initWithViewController:(ViewController *)viewController andGolgiStuff:(GolgiStuff *)golgiStuff;
-@end
-@implementation CombinedRequestReceiver
-
-- (void)newTweetWithResultSender:(id<TwipWireNewTweetResultSender>)resultSender andTweetDetails:(TweetDetails *)tweetDetails
-{
-    NSLog(@"Received tweet from: '%@' Content: '%@'", [tweetDetails getName], [tweetDetails getText]);
-    [golgiStuff.tweetDb addTweet:tweetDetails];
-    [golgiStuff.viewController newTweets];
-    [resultSender success];
-    AudioServicesPlaySystemSound(golgiStuff.popId);
-    
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.alertBody = [NSString stringWithFormat:@"Tweet by %@", [tweetDetails getName]];
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    NSLog(@"D");
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-    NSLog(@"E");
-
-}
-
-
-- (CombinedRequestReceiver *)initWithViewController:(ViewController *)_viewController andGolgiStuff:(GolgiStuff *)_golgiStuff
-{
-    self = [self init];
-    
-    viewController = _viewController;
-    golgiStuff = _golgiStuff;
-    
-    return self;
-}
-
-@end
-
-
-
 @implementation GolgiStuff
 @synthesize tweetDb;
 @synthesize viewController;
@@ -97,12 +25,35 @@
     [tweetFilter setGolgiId:[AppData getInstanceId]];
     [tweetFilter setQuery:query];
     
-    [TwipWireSvc sendStartStreamingUsingResultReceiver:[[_StartStreamingResultReceiver alloc] init] withTransportOptions:stdGto andDestination:@"SERVER" withFilter:tweetFilter];
+    [TwipWireSvc sendStartStreamingUsingResultHandler:^(TwipWireStartStreamingExceptionBundle *exBundle)
+                                                     {
+                                                         if(exBundle == nil){
+                                                             NSLog(@"startStreaming: SUCCESS");
+                                                         }
+                                                         else{
+                                                             NSLog(@"startStreaming: FAILED '%@'", [exBundle.golgiException getErrText]);
+                                                         }
+                                                     }
+                                 withTransportOptions:stdGto
+                                       andDestination:@"SERVER"
+                                           withFilter:tweetFilter];
+    
 }
 
 - (void)stopStreaming
 {
-    [TwipWireSvc sendStopStreamingUsingResultReceiver:[[_StopStreamingResultReceiver alloc]init] withTransportOptions:stdGto andDestination:@"SERVER" withGolgiId:[AppData getInstanceId]];
+    [TwipWireSvc sendStopStreamingUsingResultHandler:^(TwipWireStopStreamingExceptionBundle *exBundle)
+                                                    {
+                                                        if(exBundle == nil){
+                                                            NSLog(@"stopStreaming: SUCCESS");
+                                                        }
+                                                        else{
+                                                            NSLog(@"stopStreaming: FAILED '%@'", [exBundle.golgiException getErrText]);
+                                                        }
+                                                    }
+                                withTransportOptions:stdGto
+                                      andDestination:@"SERVER"
+                                         withGolgiId:[AppData getInstanceId]];
 }
 
 
@@ -126,51 +77,32 @@
     //
     NSLog(@"Registering with golgiId: '%@'", ourId);
     // [Golgi setOption:@"USE_DEV_CLUSTER" withValue:@"0"];
-    
-    CombinedRequestReceiver *crr = [[CombinedRequestReceiver alloc] initWithViewController:viewController andGolgiStuff:self];
-    
-    [TwipWireSvc registerNewTweetRequestReceiver:crr];
 
     
-    [Golgi registerWithDevId:GOLGI_DEV_KEY
-                       appId:GOLGI_APP_KEY
-                      instId:ourId
-                  andAPIUser:self];
-}
+    [TwipWireSvc registerNewTweetRequestHandler:^(id<TwipWireNewTweetResultSender> resultSender, TweetDetails *tweetDetails) {
+        NSLog(@"Received tweet from: '%@' Content: '%@'", [tweetDetails getName], [tweetDetails getText]);
+        [tweetDb addTweet:tweetDetails];
+        [viewController newTweets];
+        [resultSender success];
+        AudioServicesPlaySystemSound(popId);
+        
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.alertBody = [NSString stringWithFormat:@"Tweet by %@", [tweetDetails getName]];
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        NSLog(@"D");
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        NSLog(@"E");
+    }];
 
-//
-// Registration worked
-//
-
-- (void)golgiRegistrationSuccess
-{
-    NSLog(@"Golgi Registration: PASS");
-    
-    /*
-    qf = [[QuakeFilter alloc] initWithIsSet:true];
-    
-    [qf setGolgiId: ourId];
-    [qf setLat:0.0];
-    [qf setLng:0.0];
-    [qf setRadius:0.0];
-    
-    
-
-    [QuakeWatchSvc sendAddMeUsingResultReceiver:[[_AddMeResultReceiver alloc]init]
-                           withTransportOptions:stdGto
-                                 andDestination:@"SERVER"
-                                     withFilter:qf];
-     */
-
-}
-
-//
-// Registration failed
-//
-
-- (void)golgiRegistrationFailure:(NSString *)errorText
-{
-    NSLog(@"Golgi Registration: FAIL => '%@'", errorText);
+    [Golgi registerWithDevId:GOLGI_DEV_KEY appId:GOLGI_APP_KEY instId:ourId andResultHandler:^(NSString *errorText) {
+        if(errorText == nil){
+            NSLog(@"Golgi Registration: PASS");
+        }
+        else{
+            NSLog(@"Golgi Registration: FAIL => '%@'", errorText);
+        }
+    }];
 }
 
 - (void)setPushId:(NSString *)_pushId
