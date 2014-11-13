@@ -88,7 +88,7 @@ public class TWService extends GolgiAbstractService {
 
 
     @Override
-    public void registerGolgi() {
+    public void readyForRegister() {
 
         TwipWireService.newTweet.registerReceiver(new TwipWireService.newTweet.RequestReceiver() {
             @Override
