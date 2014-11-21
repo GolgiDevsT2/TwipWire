@@ -13,6 +13,6 @@
 @property IBOutlet UIImageView *userIv;
 @property IBOutlet UILabel *nameLabel;
 @property IBOutlet UILabel *timestampLabel;
-@property IBOutlet UITextView *contentTv;
+@property IBOutlet UILabel *contentLabel;
 
 @end

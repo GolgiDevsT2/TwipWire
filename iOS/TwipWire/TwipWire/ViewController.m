@@ -99,7 +99,7 @@
     return 64.0;
 }
 
-- (CGFloat)tableView:(UITableView *)tView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tView _heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(offScreenCell == nil){
         offScreenCell = [tView dequeueReusableCellWithIdentifier:@"XXX"];
@@ -172,9 +172,12 @@
     TweetDetails *deets = [self tweetForRow:indexPath.row];
  
     // Configure the cell...
+    /*
     cell.contentTv.selectable = YES;
     [cell.contentTv setText:[deets getText]];
     cell.contentTv.selectable = NO;
+     */
+    cell.contentLabel.text = [deets getText];
     [cell.nameLabel setText:[deets getName]];
     [cell.userIv setImage:[UIImage imageWithData:[deets getImage]]];
     
@@ -229,6 +232,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    tableView.rowHeight = UITableViewAutomaticDimension;
+    tableView.estimatedRowHeight = 128.0;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
