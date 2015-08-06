@@ -34,7 +34,7 @@ JRE_BIN		=	/Library/Java/Home/bin/
 JDK_BIN		=	/usr/bin
 JRE_BIN		=	/usr/bin
 
-LIB_JARS	=	libs/commons-io-2.4.jar:libs/commons-lang3-3.3.2.jar:libs/commons-logging-1.1.3.jar:libs/httpclient-4.3.3.jar:libs/httpcore-4.3.2.jar:libs/log4j-1.2.17.jar:libs/quick-json-1.0.2.3.jar:libs/twitter4j-core-4.0.2.jar
+LIB_JARS	=	libs/commons-io-2.4.jar:libs/commons-lang3-3.4.jar:libs/commons-logging-1.1.3.jar:libs/httpclient-4.3.4.jar:libs/httpcore-4.3.3.jar:libs/log4j-1.2.17.jar:libs/quick-json-1.0.2.3.jar:libs/twitter4j-core-4.0.2.jar
 
 JAVAC		=	$(JDK_BIN)/javac
 JAVA		=	$(JRE_BIN)/java
